@@ -1,0 +1,97 @@
+"""
+    Program: expenseTracker.py
+    Author: Benjamin O Ugwu
+    Date: 12/10/2019
+
+    A program to help a user track his/her expenses.
+    For example, a user will be able to set a budget for any desired expense type, record any expense
+    made and be able to see the remaining amount to be spent on that budget.
+
+    <Analysıi>
+
+"""
+# Show the user the purpose of the program
+
+# Import any modules needed by program
+from breezypythongui import EasyFrame
+from tkinter import PhotoImage
+import os
+
+# Initialize constants and variables
+
+# Input data into variables
+
+# Process the inputs to produce the results
+
+class expenseTracker(EasyFrame):
+
+    def __init__(self):
+        EasyFrame.__init__(self,width=1200,height=700,title="ExpenseTracker")
+
+        #self.setResizable="False"
+        
+        #add logo panel        
+        logoPanel=self.addPanel(row=0,column=0,background="#d6d6d6")
+        logoLabel=logoPanel.addLabel(text="",row=0, column=0,background="#d6d6d6",sticky="NE")
+
+        #add logo image
+        self.image=PhotoImage(file="logo.gif")
+        logoLabel["image"]=self.image
+        
+        #add app Name panel
+        appNamePanel=self.addPanel(row=1,column=0,background="#d6d6d6")
+        appNameLabel=appNamePanel.addLabel(text="",row=0, column=0,background="#d6d6d6",sticky="NSEW")
+        
+        #add app Name image
+        self.imageET=PhotoImage(file="ET.gif")
+        appNameLabel["image"]=self.imageET
+
+        #add menu button panel and menu button
+        menuPanel=self.addPanel(row=2,column=0,background="#d6d6d6")
+        menuPanel.addButton(text="\n***MENU***\n",row=0, column=0,state="normal",command=self.listMenu)
+        #menuPanel.addButton(text="\nTrack Expenses\n",row=0, column=1,state="normal")
+        
+        #add date and time panel
+        dateTimePanel=self.addPanel(row=3,column=0,background="#d6d6d6")
+
+        #add copyright panel, label and text
+        copyrightPanel=self.addPanel(row=4,column=0,background="#d6d6d6")
+        copyrighLabel=copyrightPanel.addLabel(text="© All Rights Reserved 2019\nBenjamin O Ugwu\nAtlantis University Miami Florida USA",background="#d6d6d6",row=0, column=0,sticky="NS")
+        #foreground="#bcbcbe",background="#ff8900"
+
+
+
+    def listMenu(self):#list the menu content       
+        menu1=self.addPanel(row=2,column=0,background="#d6d6d6")
+        menu1.addButton(text="***Add Expenses***",row=0, column=0,state="normal")
+        
+        menu2=self.addPanel(row=3,column=0,background="#d6d6d6")
+        menu2.addButton(text="***Track Expenses***",row=0, column=0,state="normal")
+
+        menu3=self.addPanel(row=4,column=0,background="#d6d6d6")
+        menu3.addButton(text=" Back ",row=0, column=0,state="normal")
+    
+       
+
+            
+def main():
+    expenseTracker().mainloop()
+
+if __name__=="__main__":
+    main()
+
+
+
+
+
+
+
+# Display the results
+
+# Finish or continue
+
+"""
+Further work:
+A calculator
+A Reminder
+"""
