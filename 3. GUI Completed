@@ -1,0 +1,237 @@
+"""
+    Program: expenseTracker.py
+    Author: Benjamin O Ugwu
+    Date: 12/10/2019
+
+    A program to help a user track his/her expenses.
+    For example, a user will be able to set a budget for any desired expense type, record any expense
+    made and be able to see the remaining amount to be spent on that budget.
+
+    Input:
+
+    Processing:
+
+    Output:
+        
+
+"""
+# Show the user the purpose of the program
+
+# Import any modules needed by program
+from breezypythongui import EasyFrame
+from tkinter import PhotoImage
+import os
+import datetime
+
+from tkinter import END, NORMAL, DISABLED
+
+
+# Initialize constants and variables
+
+# Input data into variables
+
+# Process the inputs to produce the results
+
+class expenseTracker(EasyFrame): #expense tracker extends EasyFrame(by lambert), EasyFrame extends tkinter which means, they both can run any method found in tkinter
+
+    def __init__(self): #runs expenseTracker automatically, self refers to our expensetracker app window
+        EasyFrame.__init__(self,width=1200,height=700,title="ExpenseTracker")#runs EasyFrame, the current frame we are working on-a grandchild of tkinter
+
+        self["background"]="#d6d6d6"
+
+        #self.setResizable="False"
+        
+        #add logo label and image       
+        logoLabel=self.addLabel(text="",row=0, column=1,background="#d6d6d6",sticky="NE")
+        self.image=PhotoImage(file="logo.gif")
+        logoLabel["image"]=self.image
+
+        #add date and time label
+        dt=datetime.datetime.now()
+        dateTimeLabel=self.addLabel(text="Date: "+dt.strftime("%x"),row=0,column=0,background="#d6d6d6",sticky="W")      
+        
+        
+        #add app Name label  and image     
+        appNameLabel=self.addLabel(text="",row=1,column=0,background="#d6d6d6",sticky="N",columnspan=2)
+        self.imageET=PhotoImage(file="ET.gif")
+        appNameLabel["image"]=self.imageET
+
+        #add menu button        
+        self.addButton(text="--Create New Expenses Category",row=2, column=0,state="normal",command=self.newCategory).grid(sticky="N",columnspan=2)
+        self.addButton(text="--Record Expenses",row=3, column=0,state="normal",command=self.recordExpenses).grid(sticky="EW",padx=510,columnspan=2)
+        self.addButton(text="--Track Expenses",row=4, column=0,state="normal",command=self.trackExpenses).grid(sticky="S",columnspan=2)  
+        
+        #add date and time label
+        #dt=datetime.datetime.now()
+        #dateTimeLabel=self.addLabel(text="Date: "+dt.strftime("%x"),row=3,column=0,background="#d6d6d6",sticky="S")
+        
+        #add copyright label and text        
+        copyrighLabel=self.addLabel(text="© All Rights Reserved 2019\nBenjamin O Ugwu\nAtlantis University Miami Florida USA",background="#d6d6d6",row=5, column=0,sticky="NS",columnspan=2) 
+      
+            
+    def newCategory(self):#close the main window and open the newCategory window
+        self.destroy()
+        newCategory()  
+        
+        #newCategory=self.prompterBox(title="New Category",promptString="Enter the Category Name")
+        #self.messageBox(title="New Category",message="Enter the Category Name")
+
+        
+    def recordExpenses(self):#close the main window and open the recordExpenses window        
+        self.destroy()
+        recordExpenses()
+
+
+    def trackExpenses(self):#close the main window and open the trackExpenses window
+        self.destroy()
+        trackExpenses() 
+        
+
+
+    
+"""
+    menu1=self.addPanel(row=2,column=0,background="#d6d6d6")
+    menu1.addButton(text="***Add Expenses***",row=0, column=0,state="normal")
+    
+    menu2=self.addPanel(row=3,column=0,background="#d6d6d6")
+    menu2.addButton(text="***Track Expenses***",row=0, column=0,state="normal")
+
+    menu3=self.addPanel(row=4,column=0,background="#d6d6d6")
+    menu3.addButton(text=" Back ",row=0, column=0,state="normal")
+    
+
+    self.listBox=self.addListbox(row=3,column=0)
+    
+    self.listBox.insert(0,"Add Expenses")
+    self.listBox.insert(1,"Track Expenses")
+
+    self.listBox.grid(row = 0, column = 0, sticky = "NS",pady=5)
+
+"""
+
+
+
+class newCategory(EasyFrame): #expense tracker extends EasyFrame(by lambert), EasyFrame extends tkinter which means, they both can run any method found in tkinter
+
+    def __init__(self): #runs expenseTracker automatically, self refers to our expensetracker app window
+        EasyFrame.__init__(self,width=1200,height=700,title="Adding a New Category & Budget")#runs EasyFrame, the current frame we are working on-a grandchild of tkinter
+
+        self["background"]="#d6d6d6"
+
+        #add logo label and image       
+        logoLabel=self.addLabel(text="",row=0, column=0,background="#d6d6d6",sticky="NE")
+        self.image=PhotoImage(file="logo.gif")
+        logoLabel["image"]=self.image
+
+        newCategoryName=self.addLabel(text="Enter Name of New Category: ",row=1, column=0,background="#d6d6d6",sticky="N")
+        self.addTextField(text="noNameYet",row=1,column=0).grid(sticky="EW",padx=500)
+        
+        newCategoryBudget=self.addLabel(text="Enter Budget for this Category: ",row=2, column=0,background="#d6d6d6",sticky="N")
+        self.addFloatField(value=0.0,row=2,column=0).grid(sticky="EW",padx=500)
+
+        self.addButton(text="Submit",row=3, column=0,command=self.submitSuccesful)
+
+    def submitSuccesful(self):
+        self.messageBox(title="Submitted",message="Your New Category & Budget were added successfully!")
+        self.destroy()
+        expenseTracker()
+
+
+
+class recordExpenses(EasyFrame): #expense tracker extends EasyFrame(by lambert), EasyFrame extends tkinter which means, they both can run any method found in tkinter
+
+    def __init__(self): #runs expenseTracker automatically, self refers to our expensetracker app window
+        EasyFrame.__init__(self,width=1200,height=700,title="Recording Expenses")#runs EasyFrame, the current frame we are working on-a grandchild of tkinter
+
+        self["background"]="#d6d6d6"
+
+        #add logo label and image       
+        logoLabel=self.addLabel(text="",row=0, column=0,background="#d6d6d6",sticky="NE")
+        self.image=PhotoImage(file="logo.gif")
+        logoLabel["image"]=self.image
+
+        recordExpensesLabel=self.addLabel(text="Select Expense Category: ",row=1, column=0,background="#d6d6d6",sticky="N")
+        #ADD ENTERED CATEGORY LIST HERE
+        #self.addListbox(row=2,column=0,rowspan = 1,listItemSelected = self.listItemSelected).grid(padx=500)
+        self.listBox = self.addListbox(row = 2, column = 0,listItemSelected = self.listItemSelected)
+        self.listBox.grid(padx=500)
+        self.listBox.insert(END, "Gas")
+        self.listBox.insert(END, "Grocery")
+        self.listBox.insert(END, "Travel")        
+        
+                
+        recordExpensesLabel=self.addLabel(text="Enter Amount Spent: ",row=3, column=0,background="#d6d6d6",sticky="S")
+        self.addFloatField(value=0.0,row=4,column=0).grid(sticky="N",padx=500)
+
+        recordExpensesLabel=self.addLabel(text="Comment: ",row=5, column=0,background="#d6d6d6",sticky="S")
+        self.addTextArea(text="",row=6,column=0,width=10,height=10).grid(padx=400)
+        
+        
+        self.addButton(text="Submit",row=7, column=0,command=self.submitSuccesful)
+       
+    def submitSuccesful(self):
+        self.messageBox(title="Submitted",message="Your Expense was added successfully!")
+        self.destroy()
+        expenseTracker()
+
+    def listItemSelected(self, index):#Responds to the selection of an item in the list box.
+        selectedItem=self.listBox.getSelectedIndex()
+        #print(selectedItem)
+
+
+
+class trackExpenses(EasyFrame): #expense tracker extends EasyFrame(by lambert), EasyFrame extends tkinter which means, they both can run any method found in tkinter
+
+    def __init__(self): #runs expenseTracker automatically, self refers to our expensetracker app window
+        EasyFrame.__init__(self,title="Adding a New Category & Budget")#runs EasyFrame, the current frame we are working on-a grandchild of tkinter
+
+        self["background"]="#d6d6d6"
+
+        #add logo label and image       
+        logoLabel=self.addLabel(text="",row=0, column=0,background="#d6d6d6",sticky="NE")
+        self.image=PhotoImage(file="logo.gif")
+        logoLabel["image"]=self.image
+
+        #self.addLabel(text="Below are the details of your Expenses: ",row=0, column=0,background="#d6d6d6",sticky="EW")
+        #ROW 2 FOR DETAILS
+        #self.addLabel(text="S/N\tCategory\tBudget\tDate Added\tAmount Spent\tAmount Remaining",row=1,column=0).grid(sticky="EW")
+        #self.addLabel(text="S/N\tCategory\tExpenses\tDate Expended\tComment",row=3,column=0).grid(sticky="EW")
+
+        heading1="%9s%14s%12s%16s%18s%22s"%("S/N","Category","Budget","Date Added","Amount Spent","Amount Remaining")
+        heading2="%9s%14s%14s%19s%13s"%("S/N","Category","Expenses","Date Expended","Comment")
+        self.outputArea=self.addTextArea(text="",row=1,column=0,width=30,height=20)
+        
+        self.outputArea["state"]="normal"
+        self.outputArea.setText(heading1+"\n\n\n"+heading2)
+        self.outputArea["state"]="disabled"
+        
+        self.addButton(text="Home",row=5, column=0,command=self.goHome)
+
+    def goHome(self):        
+        self.destroy()
+        expenseTracker()
+
+       
+
+            
+def main():
+    expenseTracker().mainloop()
+
+if __name__=="__main__":
+    main()
+
+
+
+
+
+
+
+# Display the results
+
+# Finish or continue
+
+"""
+Further work:
+A calculator
+A Reminder
+"""
