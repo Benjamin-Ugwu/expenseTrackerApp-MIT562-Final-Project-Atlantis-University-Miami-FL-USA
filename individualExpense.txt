@@ -1,0 +1,3 @@
+1	Grocery	20	12/17/19_14:54:40	Milk&&&and&&&Cheese
+2	Gas	125	12/17/19_14:55:40	Extra&&&Gas&&&Needed
+3	Grocery	50.25	12/17/19_14:56:17	Chicken
