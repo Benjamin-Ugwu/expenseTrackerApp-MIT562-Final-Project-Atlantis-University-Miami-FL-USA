@@ -1,3 +1,5 @@
-1	Grocery	20	12/17/19_14:54:40	Milk&&&and&&&Cheese
-2	Gas	125	12/17/19_14:55:40	Extra&&&Gas&&&Needed
-3	Grocery	50.25	12/17/19_14:56:17	Chicken
+1	Grocery	20	12/18/19_12:25:35	Milk&&&and&&&Cheese
+2	Gas	125	12/18/19_12:25:56	Extra&&&Gas&&&Needed
+3	Grocery	50.25	12/18/19_12:26:19	Chicken
+4	Auto&&&loan	600	12/18/19_12:26:44	December&&&2019
+5	Travel	12.50	12/18/19_12:27:07	Uber

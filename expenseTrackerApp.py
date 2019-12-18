@@ -9,25 +9,25 @@
     If user records budget for a car=6000USD and user spends 5500USD on the car then, remaining amount is 6000-5500 = 500USD 
 
     Input:
-        name of expense category. 
-        budget for a given category.
+        Name of expense category. 
+        Budget for a given category.
 
-        expense amount for each expense made
-        comment for each expense made
+        Expense amount for each expense made
+        Comment for each expense made
 
         Date for each record (will be recorded automatically)
 
     Processing:
-        create a window where user can select menu items; Create new expenses category, Record Expenses, Track expenses,
+        Create a window where user can select menu items; Create new expenses category, Record Expenses, Track expenses,
         Delete/Edit category, Delete/Edit expenses.
 
         Create new expenses category: will receive the new category name and budget for recording.
-            no two or more categories can have the same name.
-            budget amount must be a number
+            No two or more categories can have the same name.
+            Budget amount must be a number
             
         Record Expenses: will receive the expenses and comment on that expense for recording.
-            an expense will be recorded for a chosen expense category
-            expense amount must be a number
+            An expense will be recorded for a chosen expense category
+            Expense amount must be a number
 
         Track expenses: will show at a glance the summary of the categories and total expenses made on them
             budget=budgeted amount for a category
@@ -44,10 +44,10 @@
         
 
     Output:
-        sum of spent amount for each category
-        amount remaining to be spent on each category
+        Sum of spent amount for each category
+        Amount remaining to be spent on each category
 
-        all expenses made and their associated expense category
+        All expenses made and their associated expense categories
 
 """
 
@@ -106,7 +106,7 @@ class expenseTracker(EasyFrame): #expense tracker extends EasyFrame(by lambert),
 
         #add copyright label and text        
         copyrighLabel=self.addLabel\
-        (text="© All Rights Reserved 2019\nBenjamin O Ugwu\nAtlantis University Miami Florida USA\nMIT 562 Final Project. Supervised by Marcel Andino (Ph.D.)",\
+        (text="© All Rights Reserved 2019\nBenjamin O Ugwu\nAtlantis University Miami Florida USA\nMIT 562 Final Project, supervised by Marcel Andino (Ph.D.)",\
         background="#d6d6d6",row=7, column=0,sticky="NS",columnspan=2) 
 
     def newCategory(self):#close the main window and open the newCategory window
@@ -757,7 +757,7 @@ class deleteEditCategory(EasyFrame): #expense tracker extends EasyFrame(by lambe
 
     def deleteSuccesfulCategory(self):
         """confirms category deletion decision from user"""
-        MsgBox = messagebox.askquestion('Delete Category?','Are you sure you want to Delete this Category?',icon='warning')
+        MsgBox = messagebox.askquestion('Delete Category?','Are you sure you want to Delete this Category and its Expenses?',icon='warning')
         if MsgBox=='yes':
             self.deleteSuccesfulCategoryTrue()
             
@@ -1101,10 +1101,6 @@ if __name__=="__main__":
     main()
 
 
+#Further work: A calculator, A pie chart to represent summary and expenses
 
-"""
-Further work:
-A calculator
-A pie chart for a visual summary of expenses
 
-"""
